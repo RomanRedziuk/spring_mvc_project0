@@ -1,17 +1,33 @@
 package com.romanredziuk.spring.mvc;
 
+
+import com.romanredziuk.spring.mvc.validation.CheckEmail;
+import jakarta.validation.constraints.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Employee {
 
+    @Size(min = 2, message = "Name must not be shorter than 2 symbols")
     private String name;
-    private String surName;
+    @NotBlank(message = "Surname is required")
+    private String surname;
+    @Min(value = 500, message = "Must be greater than 499")
+    @Max(value = 5000, message = "Must be less than 5001")
     private int salary;
     private String department;
     private Map<String, String> departments;
     private String officeLocation;
     private Map<String, String> officeLocations;
+    private String[] languages;
+    private Map<String, String> languageList;
+    @Pattern(regexp = "\\d{3}-\\d{2}-\\d{2}-\\d{2}-\\d{2}", message = "please use pattern XXX-XX-XX-XX-XX")
+    private String phoneNumber;
+
+    @CheckEmail(value =  "gmail.com", message = "email must end with \"gmail.com\"")
+    private String email;
+
 
 
     public Employee() {
@@ -24,6 +40,11 @@ public class Employee {
         officeLocations.put("Bournemouth", "Bournemouth");
         officeLocations.put("London", "London");
         officeLocations.put("Manchester", "Manchester");
+
+        languageList = new HashMap<>();
+        languageList.put("French", "FR");
+        languageList.put("German", "DE");
+        languageList.put("Spanish", "ESP");
     }
 
     public String getName() {
@@ -34,12 +55,12 @@ public class Employee {
         this.name = name;
     }
 
-    public String getSurName() {
-        return surName;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setSurName(String surName) {
-        this.surName = surName;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public int getSalary() {
@@ -86,9 +107,41 @@ public class Employee {
     public String toString() {
         return "Employee{" +
                 "name='" + name + '\'' +
-                ", surName='" + surName + '\'' +
+                ", surname='" + surname + '\'' +
                 ", salary=" + salary +
                 ", department='" + department + '\'' +
                 '}';
+    }
+
+    public String[] getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(String[] languages) {
+        this.languages = languages;
+    }
+
+    public Map<String, String> getLanguageList() {
+        return languageList;
+    }
+
+    public void setLanguageList(Map<String, String> languageList) {
+        this.languageList = languageList;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
