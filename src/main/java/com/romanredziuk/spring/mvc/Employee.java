@@ -2,8 +2,8 @@ package com.romanredziuk.spring.mvc;
 
 
 import com.romanredziuk.spring.mvc.validation.CheckEmail;
-import jakarta.validation.constraints.*;
 
+import javax.validation.constraints.*;
 import java.util.HashMap;
 import java.util.Map;
 

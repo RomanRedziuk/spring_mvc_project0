@@ -1,7 +1,8 @@
 package com.romanredziuk.spring.mvc.validation;
 
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 
 public class CheckEmailValidator implements ConstraintValidator<CheckEmail, String> {
 
