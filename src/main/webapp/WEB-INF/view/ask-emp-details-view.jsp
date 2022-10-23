@@ -24,6 +24,11 @@
     <form:options items="${employee.departments}"/>
     </form:select>
     <br><br>
+    Where is your main office located?
+    <form:radiobuttons path="officeLocation" items="${employee.officeLocations}"/>
+    <br>
+    <br>
+
 
     <input type="submit" value="OK">
 

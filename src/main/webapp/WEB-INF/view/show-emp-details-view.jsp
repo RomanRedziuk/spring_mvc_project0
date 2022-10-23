@@ -19,6 +19,11 @@ Your salary: ${employee.salary}
 <br>
 <br>
 Your department: ${employee.department}
+<br>
+<br>
+Office location: ${employee.officeLocation}
+<br>
+<br>
 
 </body>
 
